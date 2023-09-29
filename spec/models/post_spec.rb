@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-
   let(:valid_author) { User.create(name: 'Test User') }
 
   it 'is valid with a title and valid counters' do
