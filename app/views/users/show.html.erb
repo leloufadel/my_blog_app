@@ -17,8 +17,11 @@
     <p><%= post.text %></p>
     <div class='custom-post-interactions'>
       <span>Comments: <%= post.commentsCounter %>,</span>
-      <span>Likes: <%= post.likesCounter%></span>
+      <span>Likes: <%= post.likesCounter %></span>
     </div>
+    <a href="<%= user_post_path(@user, post) %>">
+      <button class="custom-view-post-btn">View Post</button>
+    </a>
   </div>
 <% end %>
 <a href="<%= user_posts_path(@user) %>">
