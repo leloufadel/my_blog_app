@@ -1,6 +1,7 @@
 <a href="<%= user_posts_path(@user) %>">
   <button class="custom-back-btn">⬅</button>
 </a>
+
 <div class="custom-post-container">
   <h2>Post <%= "#" + @post.id.to_s %> by <%= @user.name %></h2>
   <div class='custom-post-interactions'>
@@ -8,6 +9,9 @@
     <span>Likes: <%= @post.likesCounter  %></span>
   </div>
   <p><%= @post.text %></p>
+  <div class='custom-like-section'>
+    <%= button_to "Like", like_user_post_path(@user, @post), method: :post, remote: true %>
+</div>
 </div>
 <div class="custom-post-container">
 <h3>Comments:</h3>
@@ -23,3 +27,6 @@
   <p>No comments yet.</p>
 <% end %>
 </div>
+<a href="<%= new_user_post_comment_path(@user, @post) %>">
+  <button id="back-btn">Add a comment</button>
+</a>
