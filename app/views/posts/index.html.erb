@@ -1,1 +1,35 @@
-<h1>Details of posts for a given user</h1>
+<a href="<%= users_path() %>">
+  <button class="custom-back-btn">⬅</button>
+</a>
+<ul>
+  <a href="<%= user_path(@user) %>">
+    <div class="custom-user-box">
+      <%= render partial: 'user_helper/user_photo', locals: { user: @user } %>
+      <%= render partial: 'user_helper/user_details', locals: { user: @user } %>
+    </div>
+  </a>
+  <% @posts.each do |post|%>
+    <a href="<%= user_post_path(@user, post) %>">
+      <div class="custom-user-post">
+        <div class="custom-post">
+          <h3>Post <%= raw "#" + post.id.to_s %></h3>
+          <p><%= post.text %></p>
+          <div class='custom-post-interactions'>
+            <span>Comments: <%= post.commentsCounter %>,</span>
+            <span>Likes: <%= post.likesCounter %></span>
+          </div>
+        </div>
+        <h3>Comments:</h3>
+        <% post.recent_comments.each do |comment, index| %>
+          <div class="custom-post-comments">
+            <span><%= comment.user.name %>:</span>
+            <span><%= comment.text %></span>
+          </div>
+        <% end %>
+      </div>
+    </a>
+  <% end %>
+  <a href="<%= users_path() %>" class='custom-pagination'>
+    <button class='custom-pagination-btn'>Pagination</button>
+  </a>
+</ul>

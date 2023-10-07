@@ -1,1 +1,12 @@
-<h1>List of Users</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <a href="<%= user_path(user) %>"> <!-- Updated path to user_path -->
+        <div class="custom-user-box">
+          <%= render partial: 'user_helper/user_photo', locals: { user: user } %>
+          <%= render partial: 'user_helper/user_details', locals: { user: user } %>
+        </div>
+      </a>
+    </li>
+  <% end %>
+</ul>
