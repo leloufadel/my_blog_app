@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: 'user_id'
   has_many :likes, foreign_key: 'user_id'
 
-  def recent_posts(limit = 3)
-    posts.order(created_at: :desc).limit(limit)
+  def three_most_recent_posts
+    posts.order(created_at: :desc).limit(3)
   end
-end
+endg
