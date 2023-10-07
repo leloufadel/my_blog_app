@@ -23,6 +23,8 @@ class PostsController < ApplicationController
     end
   end
 
+
+
   def like
     @like = @post.likes.new(user: current_user)
     if @like.save
