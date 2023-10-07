@@ -1,3 +1,5 @@
+/* Base Styles */
+
 body {
   font-family: "Goudy Bookletter 1911", sans-serif;
   font-size: 12px;
@@ -19,6 +21,12 @@ a {
   font-size: 1rem;
 }
 
+a:visited {
+  color: inherit;
+}
+
+/* Form Styles */
+
 .input {
   padding: 2%;
   border-radius: 5px;
@@ -31,9 +39,7 @@ a {
   align-items: flex-start;
 }
 
-a:visited {
-  color: inherit;
-}
+/* Button Styles */
 
 .btn-container {
   display: flex;

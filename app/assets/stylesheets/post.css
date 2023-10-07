@@ -1,3 +1,5 @@
+/* Post and Comments Styles */
+
 .post,
 .comments {
   margin-bottom: 15px;
@@ -8,18 +10,22 @@
   font-size: 1rem;
 }
 
+/* Post Header Styles */
+
 .post-header ul {
   display: flex;
   justify-content: space-between;
 }
 
-li {
+.post-header li {
   flex: 1;
 }
 
 .pull-right {
   text-align: right;
 }
+
+/* New Comment Styles */
 
 .new-comment {
   display: flex;
