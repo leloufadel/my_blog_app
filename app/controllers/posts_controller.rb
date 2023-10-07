@@ -1,50 +1,39 @@
 class PostsController < ApplicationController
-  before_action :find_user, only: %i[index show like unlike]
-  before_action :find_post, only: %i[show like unlike]
-
   def index
+    @user = User.find(params[:user_id])
     @posts = @user.posts
   end
 
-  def show; end
+  def show
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
+  end
 
   def new
     @user = current_user
-    @post = @user.posts.new
+    @post = @user.posts.build
   end
 
   def create
-    @post = current_user.posts.new(post_params)
-    if @post.save
-      flash[:notice] = 'Post created successfully.'
-      redirect_to user_path(current_user)
-    else
-      render 'new'
-    end
-  end
+    @user = current_user
+    @post = Post.new(
+      author: @user,
+      title: params[:post][:title],
+      text: params[:post][:text],
+      commentsCounter: 0,
+      likesCounter: 0
+    )
 
-  def like
-    @like = @post.likes.new(user: current_user)
-    if @like.save
-      redirect_to user_post_path(@user, @post), notice: 'Post liked successfully.'
+    if @post.save
+      flash.now[:error] = 'Post was successfully created.'
+      redirect_to user_posts_path(@user)
     else
-      redirect_to user_post_path(@user, @post), alert: 'Failed to like the post.'
+      flash.now[:error] = 'Oops, something went wrong'
+      render :new
     end
   end
 
   private
-
-  def find_user
-    @user = User.find(params[:user_id])
-  end
-
-  def find_post
-    @post = @user.posts.find_by(id: params[:id])
-    return unless @post.nil?
-
-    flash[:alert] = 'Post not found, back to posts page'
-    redirect_to user_posts_path(@user)
-  end
 
   def post_params
     params.require(:post).permit(:title, :text)

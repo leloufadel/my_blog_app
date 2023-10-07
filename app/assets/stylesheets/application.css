@@ -1,159 +1,62 @@
-.custom-user-image {
-  width: 200px;
+body {
+  font-family: "Goudy Bookletter 1911", sans-serif;
+  font-size: 12px;
 }
 
-.custom-user-box {
-  display: flex;
-  margin-bottom: 1rem;
+h3 {
+  margin: 0;
+  font-size: 1.2rem;
 }
 
-.custom-user-photo {
-  width: 4rem;
-  background-color: black;
+ul {
+  list-style: none;
+  padding: 1rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.input {
+  padding: 2%;
   border-radius: 5px;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 
-.custom-user-details {
+.f-label {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  border: 1px solid black;
-  border-radius: 5px;
-  text-align: center;
-  padding: 10px;
-  margin-left: 0.5rem;
+  align-items: flex-start;
 }
 
-.custom-user-name {
-  font-size: 24px;
-  font-weight: bold;
+a:visited {
+  color: inherit;
 }
 
-.custom-posts-count {
-  font-size: 14px;
-}
-
-/* Post Styles */
-
-.custom-user-post {
-  border: black solid 2px;
-  padding: 0.5rem 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.custom-post {
-  display: flex;
-  flex-direction: column;
-}
-
-.custom-post-interactions {
-  display: flex;
-  font-size: small;
-  gap: 5px;
-  justify-content: flex-end;
-  border: 1px;
-}
-
-/* Pagination Styles */
-
-.custom-pagination {
+.btn-container {
   display: flex;
   justify-content: center;
 }
 
-.custom-pagination-btn {
-  margin: 1rem auto;
-  padding: 1rem;
-  box-shadow: 5px 5px;
-}
-
-/* General Styles */
-
-.custom-back-btn {
-  margin-bottom: 1rem;
-}
-
-.custom-bio {
-  border: black solid 2px;
-  padding: 0.5rem 0.5rem;
-  margin-bottom: 1rem;
-}
-
-ul {
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-.custom-post-container {
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.page-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.back-link {
-  text-decoration: none;
-  color: #333;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-#back-btn {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  font-size: 16px;
-}
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.post-form {
-  width: 100%;
-}
-
-.form-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.form-input,
-.form-textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.form-textarea {
-  height: 100px;
-}
-
-.submit-btn {
-  background-color: #4caf50;
-  color: #fff;
+.btn {
+  font-size: 1.5rem;
   padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  background-color: #ccc;
+  margin-top: 1rem;
+  color: rgb(0, 30, 255);
   cursor: pointer;
-  font-size: 16px;
 }
 
-.submit-btn:hover {
-  background-color: #45a049;
+.center-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-right {
+  display: flex;
+  flex-direction: row-reverse;
 }

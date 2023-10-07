@@ -1,34 +1,27 @@
 class LikesController < ApplicationController
-  before_action :find_post, only: %i[create destroy]
+  before_action :set_post
 
-  def create
-    @like = current_user.likes.build(post: @post)
-
-    if @like.save
-      flash[:notice] = 'Post liked successfully.'
-    else
-      flash[:alert] = 'Failed to like the post.'
-    end
-
-    redirect_back(fallback_location: root_path)
+  def new
+    @like = Like.new
   end
 
-  def destroy
-    @like = current_user.likes.find_by(post: @post)
+  def create
+    @like = Like.new
+    @like.post = @post
+    @like.user = current_user
 
-    if @like
-      @like.destroy
-      flash[:notice] = 'Post unliked successfully.'
+    if @like.save
+      flash[:notice] = 'Like was successfully created.'
+      redirect_to user_post_path(@like.post.author_id, @like.post.id)
     else
-      flash[:alert] = 'Like not found.'
+      flash.now[:error] = 'Oops, something went wrong'
+      render :new
     end
-
-    redirect_back(fallback_location: root_path)
   end
 
   private
 
-  def find_post
+  def set_post
     @post = Post.find(params[:post_id])
   end
 end

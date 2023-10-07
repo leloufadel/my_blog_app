@@ -1,37 +1,35 @@
-<a href="<%= user_posts_path(@user) %>">
-  <button class="custom-back-btn">⬅</button>
-</a>
-
-<div class="custom-post-container">
-  <h2>Post <%= "#" + @post.id.to_s %> by <%= @user.name %></h2>
-  <div class='custom-post-interactions'>
-    <span>Comments: <%= @post.commentsCounter %>,</span>
-    <span>Likes: <%= @post.likesCounter %></span>
-  </div>
-  <p><%= @post.text %></p>
-  <div class='custom-like-section'>
-    <% if current_user.liked?(@post) %>
-      <%= button_to "Unlike", user_post_unlike_path(@user, @post), method: :delete, remote: true %>
-    <% else %>
-      <%= button_to "Like", user_post_like_path(@user, @post), method: :post, remote: true %>
+<div class="container">
+  <div class="post">
+    <div class="post-header">
+      <ul>
+        <li>
+          <h3>
+            <%= @post.title %> 
+            <span>by <%= @post.author.name %></span>
+          </h3>          
+        </li>
+        <li class="pull-right">
+          <span>Comments: <%= @post.commentsCounter %></span>,
+          <span>Likes: <%= @post.likesCounter %></span>
+        </li>
+      </ul>
+    </div>
+    <div class="post-body">
+        <p><%= @post.text %></p>
+    </div>
+    <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do |f| %>
+      <span><%= f.submit "Like", class: "btn" %></span>
     <% end %>
   </div>
-</div>
 
-<div class="custom-post-container">
-  <h3>Comments:</h3>
-  <% if @post.comments.present? %>
-    <% @post.comments.each do |comment| %>
-      <div class="custom-post-comments">
-        <span><%= comment.user.name %>:</span>
-        <span><%= comment.text %></span>
-      </div>
-    <% end %>
-  <% else %>
-    <p>No comments yet.</p>
-  <% end %>
+  <div class="comments">
+    <ul>
+      <% @post.most_recent_comments.each do |comment| %>
+        <li>
+          <%= render partial: 'shared/comment_card', locals: { comment: comment } %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to 'Add Comment', new_user_post_comment_path(@user, @post), class: 'btn' %>
+  </div>
 </div>
-
-<a href="<%= new_user_post_comment_path(@user, @post) %>">
-  <button id="back-btn">Add a comment</button>
-</a>

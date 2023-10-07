@@ -1,29 +1,26 @@
 class CommentsController < ApplicationController
-  before_action :find_user
-  before_action :find_post
-
+  before_action :set_post
   def new
-    @comment = @post.comments.new
+    @comment = Comment.new
   end
 
   def create
-    @comment = @post.comments.new(comment_params)
-    @comment.author = @user
+    @comment = Comment.new(comment_params)
+    @comment.post = @post
+    @comment.user = current_user
+
     if @comment.save
-      flash[:notice] = 'Comment created successfully.'
-      redirect_to user_post_path(@user, @post)
+      flash[:notice] = 'Comment was successfully created.'
+      redirect_to user_post_path(@comment.post.author_id, @comment.post.id)
     else
-      render 'new'
+      flash.now[:error] = 'Oops, something went wrong'
+      render :new
     end
   end
 
   private
 
-  def find_user
-    @user = current_user
-  end
-
-  def find_post
+  def set_post
     @post = Post.find(params[:post_id])
   end
 
