@@ -1,12 +1,14 @@
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <a href="<%= user_path(user) %>"> <!-- Updated path to user_path -->
-        <div class="custom-user-box">
-          <%= render partial: 'user_helper/user_photo', locals: { user: user } %>
-          <%= render partial: 'user_helper/user_details', locals: { user: user } %>
-        </div>
-      </a>
-    </li>
-  <% end %>
-</ul>
+<div class="user-container">
+    <%if @users.empty?%>
+        <h1>There are no users yet</h1>
+    <%end%>
+    <ul>
+        <%@users.each do |user|%>
+            <li>
+                <a href="/users/<%= user.id%>">
+                    <%= render partial: 'shared/user_card', locals: { user: user } %>
+                </a>
+            </li>
+        <%end%>
+    </ul>
+</div>
