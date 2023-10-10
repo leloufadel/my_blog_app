@@ -38,10 +38,24 @@ RSpec.feature 'User Show Page' do
     expect(page).not_to have_text(@post5.title)
     expect(page).not_to have_text(@post6.title)
   end
+  # scenario 'redirects to the post show page when you click on a users post' do
+  #   visit user_path(@user1)
+  #   expect(page).to have_link(@post2.title)
+  #   click_link @post2.title
+  #   expect(current_path).to eq(user_path(@user1, @post2))
+  # end
+  # # describe 'GET/posts/show' do
+  #   it 'redirects me to post show page, when I clicked a user post' do
+  #     visit user_path(@user1)
+  #     post = @user1.recent_posts.first
+  #     click_link(post.title)
+  #     expect(page).to have_current_path(user_post_path(@user1, post.id))
+  #   end
 
   scenario 'When I click to see all posts, it redirects me to the user\'s post\'s index page' do
     click_link 'See All Posts'
     expect(current_path).to eq(user_posts_path(@user1))
   end
 end
+
 # rubocop:enable Metrics/BlockLength
