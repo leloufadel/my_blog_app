@@ -1,4 +1,4 @@
-#user index test
+# user index test
 
 require 'rails_helper'
 
