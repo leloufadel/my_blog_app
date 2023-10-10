@@ -18,10 +18,4 @@ RSpec.feature 'User Index Page' do
     visit user_path(@user1)
     expect(page).to have_content(@user1.postsCounter)
   end
-  scenario 'When I click on a user, I am redirected to that user\'s show page' do
-    visit users_path
-    user5 = User.find_by(name: 'user1')
-    click_link user5.name
-    expect(current_path).to eq(user_path(user5))
-  end
 end

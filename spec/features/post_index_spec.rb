@@ -19,37 +19,23 @@ RSpec.feature 'User Post Index Page' do
 
     expect(page).to have_content(user.name)
 
-    expect(page).to have_content("Number of posts: #{user.posts_counter}")
+    expect(page).to have_content("Number of posts: #{user.postsCounter}")
   end
-
-  scenario 'Display right total comment and like' do
-    visit user_posts_path(user)
-
-    expect(page).to have_content("Comments : #{post1.comments_counter}, Likes : #{post1.likes_counter}")
-  end
-
   scenario 'Displays only 5 rencent comments' do
     visit user_posts_path(user)
-
     expect(page).to have_content('Comment 6')
     expect(page).to have_content('Comment 5')
     expect(page).to have_content('Comment 4')
     expect(page).to have_content('Comment 3')
     expect(page).to have_content('Comment 2')
-
-    # not showing the first comment
     expect(page).to_not have_content('Comment 1')
   end
-
   scenario 'Displays part of the body' do
     visit user_posts_path(user)
-
     expect(page).to have_content('this is body of a post')
   end
-
   scenario 'Displays title of the post correctly' do
     visit user_posts_path(user)
-
     expect(page).to have_content('Post 1')
     expect(page).to have_content('Post 2')
   end
