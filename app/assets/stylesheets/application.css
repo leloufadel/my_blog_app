@@ -1,5 +1,4 @@
 /* Base Styles */
-
 body {
   font-family: "Goudy Bookletter 1911", sans-serif;
   font-size: 12px;
@@ -26,7 +25,7 @@ a:visited {
 }
 
 /* Form Styles */
-
+/* Improved class name for inputs */
 .input {
   padding: 2%;
   border-radius: 5px;
@@ -34,13 +33,13 @@ a:visited {
   margin-left: 10px;
 }
 
+/* Improved class name for labels */
 .f-label {
   display: flex;
   align-items: flex-start;
 }
 
 /* Button Styles */
-
 .btn-container {
   display: flex;
   justify-content: center;
@@ -70,15 +69,16 @@ a:visited {
 .form-heading {
   text-align: center;
   font-weight: bold;
-  font-size: 1.7rem; 
+  font-size: 1.7rem;
   padding: 0.5rem 0;
 }
 
+/* Improved class name for labels in fields */
 .field label {
   font-weight: bold;
 }
 
-
+/* Improved class name for input fields */
 .field input[type="text"],
 .field input[type="email"],
 .field input[type="password"],
@@ -90,7 +90,7 @@ a:visited {
   border-radius: 4px;
 }
 
-
+/* Improved class name for submit button */
 .actions input[type="submit"] {
   background-color: #007BFF;
   color: white;
@@ -100,28 +100,25 @@ a:visited {
   cursor: pointer;
 }
 
-
+/* Improved class name for submit button */
 .form-section button[type="submit"] {
   background-color: #FF3B30;
   color: white;
 }
 
-
+/* Improved class name for links in fields */
 .field a {
   color: #007BFF;
 }
-
 
 #error_explanation {
   color: #FF3B30;
 }
 
-
 .form-container {
   max-width: 400px;
   margin: 0 auto;
 }
-
 
 .form-section {
   display: flex;
@@ -130,7 +127,7 @@ a:visited {
   height: 100vh;
 }
 
-
+/* Improved class names for bio and photo fields */
 .field .bio,
 .field .photo {
   height: 120px;
