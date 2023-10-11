@@ -88,7 +88,7 @@ a:visited {
 }
 
 .actions input[type="submit"] {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -97,16 +97,16 @@ a:visited {
 }
 
 .form-section button[type="submit"] {
-  background-color: #FF3B30;
+  background-color: #ff3b30;
   color: white;
 }
 
 .field a {
-  color: #007BFF;
+  color: #007bff;
 }
 
 #error_explanation {
-  color: #FF3B30;
+  color: #ff3b30;
 }
 
 .form-container {
