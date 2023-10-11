@@ -8,6 +8,7 @@
 </div>
 
 <%@user.most_recent_posts.each do |post|%>
+  <h5> <%= link_to post.title, user_post_url(@user, post) %> </h5>
   <%= render 'shared/post_card', post: post %>
 <%end%>
 
