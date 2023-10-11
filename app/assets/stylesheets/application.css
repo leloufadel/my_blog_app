@@ -71,7 +71,6 @@ a:visited {
   padding: 0.5rem 0;
 }
 
-/* Improved class name for labels in fields */
 .field label {
   font-weight: bold;
 }
@@ -88,7 +87,6 @@ a:visited {
   border-radius: 4px;
 }
 
-/* Improved class name for submit button */
 .actions input[type="submit"] {
   background-color: #007BFF;
   color: white;
@@ -98,13 +96,11 @@ a:visited {
   cursor: pointer;
 }
 
-/* Improved class name for submit button */
 .form-section button[type="submit"] {
   background-color: #FF3B30;
   color: white;
 }
 
-/* Improved class name for links in fields */
 .field a {
   color: #007BFF;
 }
@@ -125,7 +121,6 @@ a:visited {
   height: 100vh;
 }
 
-/* Improved class names for bio and photo fields */
 .field .bio,
 .field .photo {
   height: 120px;
