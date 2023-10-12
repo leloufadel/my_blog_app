@@ -71,13 +71,14 @@ a:visited {
   padding: 0.5rem 0;
 }
 
-/* Improved class name for labels in fields */
+/* Improved class name for labels in fields
 .field label {
   font-weight: bold;
 }
 
 /* Improved class name for input fields */
-.field input[type="text"],
+
+/* .field input[type="text"],
 .field input[type="email"],
 .field input[type="password"],
 .field textarea {
@@ -86,11 +87,11 @@ a:visited {
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
+} */
 
-/* Improved class name for submit button */
-.actions input[type="submit"] {
-  background-color: #007BFF;
+
+/* .actions input[type="submit"] {
+  background-color: #007bff;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -98,22 +99,20 @@ a:visited {
   cursor: pointer;
 }
 
-/* Improved class name for submit button */
 .form-section button[type="submit"] {
-  background-color: #FF3B30;
+  background-color: #ff3b30;
   color: white;
-}
+} */
 
-/* Improved class name for links in fields */
-.field a {
-  color: #007BFF;
-}
+/* .field a {
+  color: #007bff;
+} */
 
 #error_explanation {
-  color: #FF3B30;
+  color: #ff3b30;
 }
 
-.form-container {
+/* .form-container {
   max-width: 400px;
   margin: 0 auto;
 }
@@ -123,10 +122,57 @@ a:visited {
   justify-content: center;
   align-items: center;
   height: 100vh;
+} */
+
+
+/* start from here */
+body {
+  background-color: #f5f5f5;
+  font-family: 'Arial';
 }
 
-/* Improved class names for bio and photo fields */
-.field .bio,
-.field .photo {
-  height: 120px;
+.col-md-4 {
+  margin-left: 16%;
+  margin-top: 5rem;
+}
+
+.email_input,
+.pass_input {
+  width: 100%; /* Set both input fields to 100% width */
+  margin-bottom: 1rem;
+  background: white;
+  color: black;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.email_input::placeholder,
+.pass_input::placeholder {
+  color: black;
+  font-weight: bold;
+}
+
+.form-check-label {
+  font-size: 1rem;
+  color: black;
+}
+
+.btn-primary {
+  width: 100%; /* Set the login button width to 100% to match input fields */
+  height: 2.5rem;
+  border: none;
+  font-size: 1.2rem;
+  background: blue;
+  color: black;
+  border-radius: 10px;
+}
+
+a:hover {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.lik-sec {
+  margin-top: 2rem;
 }
