@@ -3,11 +3,22 @@
   <%= render partial: 'shared/user_card', locals: { user: @user } %>
 </a>
 <div class="btn-container">
-  <p class="btn"><%= link_to "Add Post", new_user_post_path %><p>
+  <p class="btn"><%= link_to "Add Post", new_user_post_path %></p> <!-- Fixed unclosed <p> tag here -->
 </div>
+<%# only authorized users %>
+<% @posts.each do |post| %>
+  <a href="/users/<%= post.author_id %>/posts/<%= post.id %>">
+    <%= render partial: 'shared/post_card', locals: { post: post } %>
+  </a>
+  <% if can? :destroy, post %>
+    <!-- Display the "Delete" button for authorized users -->
+    <%= link_to 'Delete', user_post_path(@user, post), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+<% end %>
+
 <%# post card %>
 <% @posts.each do |post| %>
-  <a href="/users/<%= post.author_id%>/posts/<%= post.id%>">
+  <a href="/users/<%= post.author_id %>/posts/<%= post.id %>">
     <%= render partial: 'shared/post_card', locals: { post: post } %>
   </a>
   <%# comment card %>
@@ -26,7 +37,3 @@
     <% end %>
   </div>
 <% end %>
-
-<div class="btn-container">
-  <button type="button" class="btn center-btn">Pagination</button>
-</div>
