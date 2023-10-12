@@ -1,0 +1,47 @@
+<h2 class="form-heading">Sign up</h2>
+
+<div class="form-section flex justify-center my-10">
+  <div class="form-container border border-2 p-10">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+       <div class="form-group">      
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Username',  class: "form-control email_input" %>
+      </div>
+
+      <div class="field my-5">
+        
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email',  class: "form-control email_input" %>
+      </div>
+
+      <div class="field my-5">
+        
+        <%= f.text_area :bio, autofocus: true, autocomplete: "bio", placeholder: 'Bio',  class: "form-control email_input" %>
+      </div>
+
+      <div class="field my-5">
+        
+        <%= f.text_field :photo, autofocus: true, autocomplete: "photo", placeholder: 'Photo URL',  class: "form-control email_input" %>
+      </div>
+
+      <div class="field my-5">
+        
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Password',  class: "form-control email_input" %>
+      </div>
+
+      <div class="field my-5">
+    
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Password', class: "form-control email_input" %>
+      </div>
+
+      <div class="actions my-5">
+        <%= f.submit "Sign up", class: "btn btn-primary"  %>
+      </div>
+
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
+</div>

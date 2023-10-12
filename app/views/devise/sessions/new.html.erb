@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="col-md-4">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control email_input" %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control pass_input" %>
+            </div>
+            <% if devise_mapping.rememberable? %>
+              <div class="form-group form-check">
+                <%= f.check_box :remember_me, class: "form-check-input" %>
+                <%= f.label :remember_me, class: "form-check-label" %>
+              </div>
+            <% end %>
+            <div class="text-center" style="margin-top: 20px;">
+              <%= f.submit "Log in", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+          <div class="text-center lik-sec">
+            <%= render "devise/shared/links" %>
+          </div>
+    </div>
+</div>
