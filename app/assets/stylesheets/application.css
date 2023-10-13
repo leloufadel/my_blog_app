@@ -121,3 +121,22 @@ a:hover {
 .lik-sec {
   margin-top: 2rem;
 }
+
+.delete-button {
+  background-color: #ff4136;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 2px;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #d11c16;
+}

@@ -3,30 +3,39 @@
   <%= render partial: 'shared/user_card', locals: { user: @user } %>
 </a>
 <div class="btn-container">
-  <p class="btn"><%= link_to "Add Post", new_user_post_path %><p>
+  <p class="btn"><%= link_to "Add Post", new_user_post_path %></p>
 </div>
-<%# post card %>
-<% @posts.each do |post| %>
-  <a href="/users/<%= post.author_id%>/posts/<%= post.id%>">
-    <%= render partial: 'shared/post_card', locals: { post: post } %>
-  </a>
-  <%# comment card %>
 
-  <div class="comments">
-    <% if post.most_recent_comments.any? %>
-      <ul>
-        <% post.most_recent_comments.each do |comment| %>
-          <li>
-            <%= render partial: 'shared/comment_card', locals: { comment: comment } %>
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-     <p>No recent comments found.</p>
+<%# Display posts and delete button for authorized users %>
+<% @posts.each do |post| %>
+  <div>
+    <a href="<%= user_post_path(@user, post) %>">
+      <%= render partial: 'shared/post_card', locals: { post: post } %>
+    </a>
+    <% if can? :destroy, post %>
+      <%= form_with model: post, url: post_path(post), method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
+      <span><%= f.submit "Delete", class: "delete-button" %></span>
+    <% end %>
     <% end %>
   </div>
 <% end %>
 
-<div class="btn-container">
-  <button type="button" class="btn center-btn">Pagination</button>
-</div>
+<%# post card %>
+<% @posts.each do |post| %>
+  <div>
+    <div class="comments">
+      <% if post.most_recent_comments.any? %>
+        <ul>
+          <% post.most_recent_comments.each do |comment| %>
+            <li>
+              <%= render partial: 'shared/comment_card', locals: { comment: comment } %>
+              
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No recent comments found.</p>
+      <% end %>
+    </div>
+  </div>
+<% end %>

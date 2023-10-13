@@ -45,6 +45,11 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
+  
+<div class="field">
+    <%= f.label :role %><br />
+    <%= f.text_field :role, autofocus: true, autocomplete: 'role', value: 'admin' %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Update" %>

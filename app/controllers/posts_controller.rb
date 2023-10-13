@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.includes(posts: :comments).find(params[:user_id])
     @posts = @user.posts.includes(:comments)
@@ -31,6 +32,13 @@ class PostsController < ApplicationController
       flash.now[:error] = 'Oops, something went wrong'
       render :new
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:notice] = 'Post was Deleted seccesufuly'
+    redirect_to user_posts_path(current_user)
   end
 
   private

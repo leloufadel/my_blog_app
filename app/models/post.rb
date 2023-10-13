@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   attribute :likesCounter, :integer, default: 0
 
   after_save :update_post_counter
-  after_destroy :update_post_counter
+  after_destroy :update_post_counters
 
   validates :title, presence: true, length: { maximum: 250 }
   validates :text, presence: true
@@ -24,5 +24,9 @@ class Post < ApplicationRecord
 
   def update_post_counter
     author.increment!(:postsCounter)
+  end
+
+  def update_post_counters
+    author.decrement!(:postsCounter)
   end
 end

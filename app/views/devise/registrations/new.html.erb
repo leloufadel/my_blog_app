@@ -37,6 +37,11 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Password', class: "form-control email_input" %>
       </div>
 
+ <div class="field">
+    <%= f.label :role %><br />
+    <%= f.text_field :role, autofocus: true, autocomplete: 'role' %>
+  </div>
+
       <div class="actions my-5">
         <%= f.submit "Sign up", class: "btn btn-primary"  %>
       </div>
