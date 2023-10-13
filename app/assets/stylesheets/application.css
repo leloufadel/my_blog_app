@@ -123,8 +123,8 @@ a:hover {
 }
 
 .delete-button {
-  background-color: #ff4136; 
-  color: #fff; 
+  background-color: #ff4136;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -140,4 +140,3 @@ a:hover {
 .delete-button:hover {
   background-color: #d11c16;
 }
-
