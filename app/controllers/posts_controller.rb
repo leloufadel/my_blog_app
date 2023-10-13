@@ -35,15 +35,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @user = current_user
-    @post = @user.posts.find(params[:id])
-    authorize! :destroy, @post
-    if @post.destroy
-      flash.now[:success] = "Your post titled: '#{@post.title}' was successfully deleted"
-    else
-      flash.now[:error] = 'Oops! Cannot delete your post.'
-    end
-    redirect_to user_posts_path(@user)
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:notice] = 'Post was Deleted seccesufuly'
+    redirect_to user_posts_path(current_user)
   end
 
   private

@@ -1,1 +1,6 @@
 <%= comment.user.name %>: <%= comment.text %>
+<% if can? :destroy, comment %>
+                <%= form_with model: comment, url: user_post_comment_path(comment.user, comment.post, comment), method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
+                  <span><%= f.submit "Delete", class: "delete-button" %></span>
+                <% end %>
+              <% end %>
