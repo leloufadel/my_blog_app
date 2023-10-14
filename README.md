@@ -83,6 +83,12 @@ Install this project with:
 
 it will install the required gemfile for running the project
 
+## How to run my Project 
+- first you will run rails s 
+- second you will sign_up 
+- third the confirmation token via terminal
+- fourth clik see all post button 
+- then you can create your posts, comments, like and delete them.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
